@@ -1,0 +1,66 @@
+{
+  "parent": "minecraft:adventure/root",
+  "criteria": {
+    "bronze_hourglass": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "timeechoes:bronze_hourglass"
+          }
+        ]
+      }
+    },
+    "obsidian_sundial": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "timeechoes:obsidian_sundial"
+          }
+        ]
+      }
+    },
+    "fractured_tablet": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "timeechoes:fractured_tablet"
+          }
+        ]
+      }
+    },
+    "echo_compass": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "timeechoes:echo_compass"
+          }
+        ]
+      }
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.timeechoes.collections.past_echoes.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "timeechoes:echo_compass"
+    },
+    "title": {
+      "translate": "advancements.timeechoes.collections.past_echoes.title"
+    }
+  },
+  "requirements": [
+    [
+      "bronze_hourglass",
+      "obsidian_sundial",
+      "fractured_tablet",
+      "echo_compass"
+    ]
+  ],
+  "sends_telemetry_event": false
+}

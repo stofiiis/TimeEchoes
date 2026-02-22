@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "timeechoes:chrono_shard"
+    },
+    "E": {
+      "item": "minecraft:echo_shard"
+    },
+    "F": {
+      "item": "minecraft:fermented_spider_eye"
+    }
+  },
+  "pattern": [
+    " E ",
+    "FCF",
+    " E "
+  ],
+  "result": {
+    "count": 1,
+    "id": "timeechoes:entropy_core"
+  }
+}

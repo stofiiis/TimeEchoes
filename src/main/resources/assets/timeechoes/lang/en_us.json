@@ -1,0 +1,44 @@
+{
+  "itemGroup.timeechoes": "Time Echoes",
+
+  "item.timeechoes.chrono_shard": "Chrono Shard",
+  "item.timeechoes.chrono_shard.lore.1": "A shard that remembers faster timelines.",
+  "item.timeechoes.chrono_shard.lore.2": "Nearby crops sometimes surge forward in growth.",
+
+  "item.timeechoes.entropy_core": "Entropy Core",
+  "item.timeechoes.entropy_core.lore.1": "A heavy relic wrapped in stale time.",
+  "item.timeechoes.entropy_core.lore.2": "Nearby growth can stall in slowed moments.",
+
+  "item.timeechoes.bronze_hourglass": "Bronze Hourglass",
+  "item.timeechoes.bronze_hourglass.lore.1": "Collection Relic I: Calendar Age",
+  "item.timeechoes.bronze_hourglass.lore.2": "Sand once used to chart first settlements.",
+
+  "item.timeechoes.obsidian_sundial": "Obsidian Sundial",
+  "item.timeechoes.obsidian_sundial.lore.1": "Collection Relic II: Basalt Dynasties",
+  "item.timeechoes.obsidian_sundial.lore.2": "Shadow marks from a civilization of black glass.",
+
+  "item.timeechoes.fractured_tablet": "Fractured Tablet",
+  "item.timeechoes.fractured_tablet.lore.1": "Collection Relic III: The Silent Archive",
+  "item.timeechoes.fractured_tablet.lore.2": "Only fragments remain of its final warning.",
+
+  "item.timeechoes.echo_compass": "Echo Compass",
+  "item.timeechoes.echo_compass.lore.1": "Collection Relic IV: The Last Survey",
+  "item.timeechoes.echo_compass.lore.2": "Its needle points toward places that no longer exist.",
+
+  "entity.timeechoes.echo_archivist": "Echo Archivist",
+
+  "advancements.timeechoes.collections.past_echoes.title": "Archive of Lost Ages",
+  "advancements.timeechoes.collections.past_echoes.description": "Collect all four relics from forgotten timelines.",
+
+  "commands.timeechoes.tp_structure.success": "Teleported to nearest %1$s at %2$s %3$s %4$s (radius %5$s).",
+  "commands.timeechoes.tp_structure.not_found": "No structure found for %1$s in the selected radius.",
+  "commands.timeechoes.tp_structure.invalid": "Unknown structure id: %1$s",
+  "commands.timeechoes.tp_structure.teleport_failed": "Teleportation failed.",
+
+  "timeechoes.configuration.title": "Time Echoes Config",
+  "timeechoes.configuration.section.timeechoes.common.toml": "Time Echoes Config",
+  "timeechoes.configuration.section.timeechoes.common.toml.title": "Time Echoes Config",
+  "timeechoes.configuration.auraRadius": "Aura Radius",
+  "timeechoes.configuration.chronoGrowChance": "Chrono Growth Chance",
+  "timeechoes.configuration.entropyBlockChance": "Entropy Slow Chance"
+}

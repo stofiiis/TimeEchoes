@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:chiseled_copper"
+    },
+    "G": {
+      "item": "minecraft:glass_bottle"
+    },
+    "S": {
+      "item": "minecraft:sand"
+    }
+  },
+  "pattern": [
+    " B ",
+    "GSG",
+    " B "
+  ],
+  "result": {
+    "count": 1,
+    "id": "timeechoes:bronze_hourglass"
+  }
+}

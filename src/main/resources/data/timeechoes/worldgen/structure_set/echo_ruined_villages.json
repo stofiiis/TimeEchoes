@@ -1,0 +1,14 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 204560713,
+    "separation": 16,
+    "spacing": 58
+  },
+  "structures": [
+    {
+      "structure": "timeechoes:echo_ruined_village",
+      "weight": 1
+    }
+  ]
+}
