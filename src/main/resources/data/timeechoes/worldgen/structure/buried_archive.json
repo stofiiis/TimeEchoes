@@ -1,15 +1,15 @@
 {
   "type": "minecraft:jigsaw",
-  "biomes": "#timeechoes:has_structure/echo_ruined_village",
-  "max_distance_from_center": 80,
+  "biomes": "#timeechoes:has_structure/time_echoes_sites",
+  "max_distance_from_center": 96,
   "project_start_to_heightmap": "WORLD_SURFACE_WG",
-  "size": 5,
+  "size": 0,
   "spawn_overrides": {},
   "start_height": {
     "absolute": 0
   },
-  "start_pool": "timeechoes:echoes/plains_zombie_town_centers",
+  "start_pool": "timeechoes:echoes/sites/buried_archive_pool",
   "step": "surface_structures",
   "terrain_adaptation": "beard_thin",
-  "use_expansion_hack": true
+  "use_expansion_hack": false
 }

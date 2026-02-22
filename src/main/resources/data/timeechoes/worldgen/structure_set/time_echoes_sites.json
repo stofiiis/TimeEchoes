@@ -1,0 +1,50 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 204560713,
+    "separation": 12,
+    "spacing": 44
+  },
+  "structures": [
+    {
+      "structure": "timeechoes:fractured_camp",
+      "weight": 1
+    },
+    {
+      "structure": "timeechoes:collapsed_watchpost",
+      "weight": 1
+    },
+    {
+      "structure": "timeechoes:buried_archive",
+      "weight": 1
+    },
+    {
+      "structure": "timeechoes:sundial_court",
+      "weight": 1
+    },
+    {
+      "structure": "timeechoes:shattered_workshop",
+      "weight": 1
+    },
+    {
+      "structure": "timeechoes:echo_outpost",
+      "weight": 1
+    },
+    {
+      "structure": "timeechoes:moss_vault",
+      "weight": 1
+    },
+    {
+      "structure": "timeechoes:silent_forum",
+      "weight": 1
+    },
+    {
+      "structure": "timeechoes:temporal_sanctum",
+      "weight": 1
+    },
+    {
+      "structure": "timeechoes:grand_obelisk",
+      "weight": 1
+    }
+  ]
+}

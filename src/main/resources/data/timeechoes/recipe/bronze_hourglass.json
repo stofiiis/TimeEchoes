@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "B": {
-      "item": "minecraft:chiseled_copper"
-    },
-    "G": {
-      "item": "minecraft:glass_bottle"
-    },
-    "S": {
-      "item": "minecraft:sand"
-    }
+    "B": "minecraft:chiseled_copper",
+    "G": "minecraft:glass_bottle",
+    "S": "minecraft:sand"
   },
   "pattern": [
     " B ",

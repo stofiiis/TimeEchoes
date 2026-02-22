@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "C": {
-      "item": "minecraft:compass"
-    },
-    "E": {
-      "item": "minecraft:echo_shard"
-    },
-    "A": {
-      "item": "minecraft:amethyst_shard"
-    }
+    "C": "minecraft:compass",
+    "E": "minecraft:echo_shard",
+    "A": "minecraft:amethyst_shard"
   },
   "pattern": [
     " A ",

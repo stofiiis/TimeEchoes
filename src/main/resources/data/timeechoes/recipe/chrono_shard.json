@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "A": {
-      "item": "minecraft:amethyst_shard"
-    },
-    "C": {
-      "item": "minecraft:clock"
-    },
-    "R": {
-      "item": "minecraft:redstone"
-    }
+    "A": "minecraft:amethyst_shard",
+    "C": "minecraft:clock",
+    "R": "minecraft:redstone"
   },
   "pattern": [
     " A ",

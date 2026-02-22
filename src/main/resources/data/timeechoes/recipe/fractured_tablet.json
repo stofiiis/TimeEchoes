@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "B": {
-      "item": "minecraft:book"
-    },
-    "P": {
-      "item": "minecraft:paper"
-    },
-    "Q": {
-      "item": "minecraft:quartz"
-    }
+    "B": "minecraft:book",
+    "P": "minecraft:paper",
+    "Q": "minecraft:quartz"
   },
   "pattern": [
     "QPQ",

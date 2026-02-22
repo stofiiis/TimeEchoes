@@ -21,8 +21,20 @@ The mod adds "echoes of the past":
 - Wandering trader integration:
   - extra Time Echoes trades,
   - chance to rename to `Echo Archivist`.
+- Custom world structures (no vanilla village templates):
+  - `fractured_camp`
+  - `collapsed_watchpost`
+  - `buried_archive`
+  - `sundial_court`
+  - `shattered_workshop`
+  - `echo_outpost`
+  - `moss_vault`
+  - `silent_forum`
+  - `temporal_sanctum`
+  - `grand_obelisk`
 - Teleport commands:
-  - `/timeechoes tp_echo_ruin [radius]`
+  - `/timeechoes tp_site <site_name> [radius]`
+  - `/timeechoes tp_echo_ruin [radius]` (alias for `fractured_camp`)
   - `/timeechoes tp_structure <structure_id> [radius]`
 
 ## Development

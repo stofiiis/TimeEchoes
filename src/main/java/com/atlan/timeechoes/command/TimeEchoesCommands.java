@@ -2,10 +2,12 @@ package com.atlan.timeechoes.command;
 
 import com.atlan.timeechoes.TimeEchoesMod;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
+import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.mojang.brigadier.exceptions.DynamicCommandExceptionType;
 import com.mojang.brigadier.exceptions.SimpleCommandExceptionType;
 import com.mojang.datafixers.util.Pair;
+import java.util.List;
 import java.util.Set;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
@@ -29,9 +31,18 @@ public final class TimeEchoesCommands {
     private static final int DEFAULT_RADIUS = 256;
     private static final int MAX_RADIUS = 4096;
 
-    private static final ResourceKey<Structure> ECHO_RUIN_KEY = ResourceKey.create(
-            Registries.STRUCTURE,
-            Identifier.fromNamespaceAndPath(TimeEchoesMod.MODID, "echo_ruined_village")
+    private static final SiteDefinition DEFAULT_SITE = site("fractured_camp");
+    private static final List<SiteDefinition> SITES = List.of(
+            DEFAULT_SITE,
+            site("collapsed_watchpost"),
+            site("buried_archive"),
+            site("sundial_court"),
+            site("shattered_workshop"),
+            site("echo_outpost"),
+            site("moss_vault"),
+            site("silent_forum"),
+            site("temporal_sanctum"),
+            site("grand_obelisk")
     );
 
     private static final DynamicCommandExceptionType ERROR_STRUCTURE_NOT_FOUND = new DynamicCommandExceptionType(
@@ -49,34 +60,51 @@ public final class TimeEchoesCommands {
 
     @SubscribeEvent
     public static void registerCommands(RegisterCommandsEvent event) {
-        event.getDispatcher().register(
-                Commands.literal("timeechoes")
-                        .requires(Commands.hasPermission(Commands.LEVEL_GAMEMASTERS))
-                        .then(Commands.literal("tp_echo_ruin")
-                                .executes(context -> teleportToEchoRuin(context.getSource(), DEFAULT_RADIUS))
+        LiteralArgumentBuilder<CommandSourceStack> root = Commands.literal("timeechoes")
+                .requires(Commands.hasPermission(Commands.LEVEL_GAMEMASTERS))
+                .then(Commands.literal("tp_echo_ruin")
+                        .executes(context -> teleportToSite(context.getSource(), DEFAULT_SITE, DEFAULT_RADIUS))
+                        .then(Commands.argument("radius", IntegerArgumentType.integer(1, MAX_RADIUS))
+                                .executes(context -> teleportToSite(
+                                        context.getSource(),
+                                        DEFAULT_SITE,
+                                        IntegerArgumentType.getInteger(context, "radius")
+                                ))))
+                .then(Commands.literal("tp_structure")
+                        .then(Commands.argument("structure", ResourceKeyArgument.key(Registries.STRUCTURE))
+                                .executes(context -> teleportToStructure(
+                                        context.getSource(),
+                                        ResourceKeyArgument.getStructure(context, "structure"),
+                                        DEFAULT_RADIUS
+                                ))
                                 .then(Commands.argument("radius", IntegerArgumentType.integer(1, MAX_RADIUS))
-                                        .executes(context -> teleportToEchoRuin(context.getSource(), IntegerArgumentType.getInteger(context, "radius")))))
-                        .then(Commands.literal("tp_structure")
-                                .then(Commands.argument("structure", ResourceKeyArgument.key(Registries.STRUCTURE))
                                         .executes(context -> teleportToStructure(
                                                 context.getSource(),
                                                 ResourceKeyArgument.getStructure(context, "structure"),
-                                                DEFAULT_RADIUS
-                                        ))
-                                        .then(Commands.argument("radius", IntegerArgumentType.integer(1, MAX_RADIUS))
-                                                .executes(context -> teleportToStructure(
-                                                        context.getSource(),
-                                                        ResourceKeyArgument.getStructure(context, "structure"),
-                                                        IntegerArgumentType.getInteger(context, "radius")
-                                                )))))
-        );
+                                                IntegerArgumentType.getInteger(context, "radius")
+                                        )))));
+
+        LiteralArgumentBuilder<CommandSourceStack> tpSite = Commands.literal("tp_site");
+        for (SiteDefinition site : SITES) {
+            tpSite.then(Commands.literal(site.literal())
+                    .executes(context -> teleportToSite(context.getSource(), site, DEFAULT_RADIUS))
+                    .then(Commands.argument("radius", IntegerArgumentType.integer(1, MAX_RADIUS))
+                            .executes(context -> teleportToSite(
+                                    context.getSource(),
+                                    site,
+                                    IntegerArgumentType.getInteger(context, "radius")
+                            ))));
+        }
+        root.then(tpSite);
+
+        event.getDispatcher().register(root);
     }
 
-    private static int teleportToEchoRuin(CommandSourceStack source, int radius) throws CommandSyntaxException {
+    private static int teleportToSite(CommandSourceStack source, SiteDefinition site, int radius) throws CommandSyntaxException {
         Holder.Reference<Structure> structure = source.getServer().registryAccess()
                 .lookupOrThrow(Registries.STRUCTURE)
-                .get(ECHO_RUIN_KEY)
-                .orElseThrow(() -> ERROR_STRUCTURE_INVALID.create(ECHO_RUIN_KEY.identifier()));
+                .get(site.structureKey())
+                .orElseThrow(() -> ERROR_STRUCTURE_INVALID.create(site.structureKey().identifier()));
 
         return teleportToStructure(source, structure, radius);
     }
@@ -127,5 +155,15 @@ public final class TimeEchoesCommands {
                 true
         );
         return 1;
+    }
+
+    private static SiteDefinition site(String path) {
+        return new SiteDefinition(
+                path,
+                ResourceKey.create(Registries.STRUCTURE, Identifier.fromNamespaceAndPath(TimeEchoesMod.MODID, path))
+        );
+    }
+
+    private record SiteDefinition(String literal, ResourceKey<Structure> structureKey) {
     }
 }
